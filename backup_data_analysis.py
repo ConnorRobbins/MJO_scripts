@@ -151,7 +151,6 @@ var_name2long_name={
     'm_vrtbar_divprime':'minus_time_perturbation_divergence_of_wind_times_time_mean_atmosphere_relative_vorticity',
     'm_vrtprime_divbar':'minus_time_mean_divergence_of_wind_times_time_perturbation_atmosphere_relative_vorticity',
     'm_vrtprime_divprime':'minus_time_perturbation_divergence_of_wind_times_time_perturbation_atmosphere_relative_vorticity',
-    'nsquared':'square_of_brunt_vaisala_frequency_in_sea_water',
     'nhfd':'surface_downward_heat_flux_in_sea_water',
     'olr':'toa_outgoing_longwave_flux',
     'omega':'lagrangian_tendency_of_air_pressure',
@@ -242,14 +241,14 @@ def source_info(aa):
     aa.level_type=xx[1]
     aa.frequency=xx[2]
     # Check data_source attribute is valid
-    valid_data_sources=['era5trp','era5plp','era5bar','era5mcw','era5ewa','era5glo','era5gloerai','era5gloeraiER1','era5gloeraiNER1','era5gloeraiER2','era5gloeraiER3','erainterim','erainterimEK1','erainterimNEK1','erainterimNEK1T42','erainterimEK2','erainterimEK3','erainterimER1','erainterimER2','imergplp','imergmcw','imergmts','imergmt2','imergnpl','imergnp2','imergtrm','imergtrmp1','ncepdoe','ncepdoegg','ncepncar','olrcdr','olrinterp','ostial4nrttrp','ostial4reptrp','sg579m031oi01','sg534m031oi01','sg532m031oi01','sg620m031oi01','sg613m031oi01','sgallm031oi01','sstrey','trmm3b42v7','trmm3b42v7p1','trmm3b42v7p2','trmm3b42v7p3','trmm3b42v7p4','tropflux','hadgem2esajhog','glorys12v1','glorys12v1eq1','glorys12v1aeq1','glorys12v1eq1erai','glorys12v1aeq1erai','cmap']
+    valid_data_sources=['era5trp','era5plp','era5bar','era5mcw','era5ewa','era5glo','era5gloerai','era5gloeraiER1','era5gloeraiNER1','era5gloeraiER2','era5gloeraiER3','erainterim','erainterimEK1','erainterimNEK1','erainterimNEK1T42','erainterimEK2','erainterimEK3','erainterimER1','erainterimER2','imergplp','imergmcw','imergmts','imergmt2','imergnpl','imergnp2','imergtrm','imergtrmp1','ncepdoe','ncepdoegg','ncepncar','olrcdr','olrinterp','ostial4nrttrp','ostial4reptrp','sg579m031oi01','sg534m031oi01','sg532m031oi01','sg620m031oi01','sg613m031oi01','sgallm031oi01','sstrey','trmm3b42v7','trmm3b42v7p1','trmm3b42v7p2','trmm3b42v7p3','trmm3b42v7p4','tropflux','hadgem2esajhog','glorys12v1','glorys12v1eq1','glorys12v1eq1erai','cmap']
     if aa.data_source not in valid_data_sources:
         raise UserWarning('data_source {0.data_source!s} not valid'.format(aa))
     # Set outfile_frequency attribute depending on source information
     if aa.source in ['erainterim_sfc_d','erainterim_sfc_6h','erainterim_plev_6h','erainterimEK1_plev_6h','erainterimNEK1_plev_6h','erainterimNEK1T42_plev_6h','erainterimEK2_plev_6h','erainterimEK3_plev_6h','erainterimER1_plev_6h','erainterimER2_plev_6h','erainterim_plev_d','ncepdoe_plev_6h','ncepdoe_plev_d','ncepdoe_sfc_d','ncepdoegg_zlev_d','ncepdoe_zlev_d','ncepncar_plev_d','ncepncar_sfc_d','olrcdr_toa_d','olrinterp_toa_d','sstrey_sfc_7d','sg579m031oi01_zlev_h','sg534m031oi01_zlev_h','sg532m031oi01_zlev_h','sg620m031oi01_zlev_h','sg613m031oi01_zlev_h','sgallm031oi01_zlev_h','sstrey_sfc_d','tropflux_sfc_d','hadgem2esajhog_plev_d','cmap_sfc_5d','cmap_sfc_d']:
         aa.outfile_frequency='year'
         aa.wildcard='????'
-    elif aa.source in ['imergplp_sfc_30m','imergmcw_sfc_30m','imergmcw_sfc_dt','imergmts_sfc_30m','imergmt2_sfc_30m','imergnpl_sfc_30m','imergnp2_sfc_30m','imergtrm_sfc_30m','imergtrm_sfc_3h','imergtrmp1_sfc_3h','trmm3b42v7_sfc_3h','trmm3b42v7p1_sfc_3h','trmm3b42v7p2_sfc_3h','trmm3b42v7_sfc_d','trmm3b42v7p1_sfc_d','trmm3b42v7p3_sfc_d','trmm3b42v7p4_sfc_d','era5trp_plev_h','era5plp_plev_h','era5mcw_plev_h','era5mcw_plev_d','era5ewa_plev_h','era5glo_plev_h','era5gloerai_plev_h','era5gloerai_plev_3h','era5gloeraiER1_plev_3h','era5gloeraiNER1_plev_3h','era5gloeraiER2_plev_3h','era5gloeraiER3_plev_3h','era5plp_sfc_h','era5bar_sfc_h','era5mcw_sfc_h','era5mcw_sfc_d','ostial4nrttrp_sfc_d','ostial4reptrp_sfc_d','glorys12v1_zlev_d','glorys12v1eq1_zlev_d','glorys12v1eq1erai_zlev_d','glorys12v1aeq1_zlev_d','glorys12v1aeq1erai_zlev_d','era5gloerai_sfc_d']:
+    elif aa.source in ['imergplp_sfc_30m','imergmcw_sfc_30m','imergmcw_sfc_dt','imergmts_sfc_30m','imergmt2_sfc_30m','imergnpl_sfc_30m','imergnp2_sfc_30m','imergtrm_sfc_30m','imergtrm_sfc_3h','imergtrmp1_sfc_3h','trmm3b42v7_sfc_3h','trmm3b42v7p1_sfc_3h','trmm3b42v7p2_sfc_3h','trmm3b42v7_sfc_d','trmm3b42v7p1_sfc_d','trmm3b42v7p3_sfc_d','trmm3b42v7p4_sfc_d','era5trp_plev_h','era5plp_plev_h','era5mcw_plev_h','era5mcw_plev_d','era5ewa_plev_h','era5glo_plev_h','era5gloerai_plev_h','era5gloerai_plev_3h','era5gloeraiER1_plev_3h','era5gloeraiNER1_plev_3h','era5gloeraiER2_plev_3h','era5gloeraiER3_plev_3h','era5plp_sfc_h','era5bar_sfc_h','era5mcw_sfc_h','era5mcw_sfc_d','ostial4nrttrp_sfc_d','ostial4reptrp_sfc_d','glorys12v1_zlev_d','glorys12v1eq1_zlev_d','glorys12v1eq1erai_zlev_d']:
         aa.outfile_frequency='month'
         aa.wildcard='??????'
     else:
@@ -428,14 +427,6 @@ def clean_callback(cube,field,filename):
               'summary',
               'time_coverage_end',
               'time_coverage_start',
-              'latitude_max',
-              'latitude_min',
-              'longitude_max',
-              'longitude_min',
-              'field_type',
-              'copernicusmarine_version',
-              'CDI',
-              'CDO',
               'uuid',]
     for attribute in att_list:
         if attribute in cube.attributes:
@@ -2421,7 +2412,7 @@ class DataConverter(object):
                 self.filein1=os.path.join(self.basedir,self.source,'raw',self.var_name+'_day_HadGEM2-ES_piControl_r1i1p1_*.nc')
         elif self.source in ['glorys12v1_zlev_d']:
             self.filein1=os.path.join(self.basedir,self.source,'raw','NEMO_GR_PHY_001_030_'+str(self.year)+str(self.month).zfill(2)+'*.nc')
-        elif self.source in ['glorys12v1eq1_zlev_d','glorys12v1aeq1_zlev_d']:
+        elif self.source in ['glorys12v1eq1_zlev_d']:
             self.filein1=os.path.join(self.basedir,self.source,'raw',self.var_name+'_'+str(self.level)+'_'+str(self.year)+str(self.month).zfill(2)+'*.nc')
         else:
             raise UserWarning('Data source not recognised.')
@@ -2440,7 +2431,7 @@ class DataConverter(object):
         elif self.data_source in ['glorys12v1'] and self.level_type=='zlev':
             leveltol=0.01
             level_constraint=iris.Constraint(depth=lambda cell: self.level-leveltol<=cell<=self.level+leveltol)
-        elif self.data_source in ['glorys12v1eq1','glorys12v1aeq1'] and self.level_type=='zlev':
+        elif self.data_source in ['glorys12v1eq1'] and self.level_type=='zlev':
             leveltol=0.001
             level_constraint=iris.Constraint(depth=lambda cell: self.level-leveltol<=cell<=self.level+leveltol)
         elif self.source in ['ncepdoe_sfc_d','ncepncar_sfc_d','olrcdr_toa_d','olrinterp_toa_d','sg579m031oi01_zlev_h','sg534m031oi01_zlev_h','sg532m031oi01_zlev_h','sg620m031oi01_zlev_h','sg613m031oi01_zlev_h','sstrey_sfc_7d','imergplp_sfc_30m','imergmcw_sfc_30m','imergmts_sfc_30m','imergmt2_sfc_30m','imergnpl_sfc_30m','imergnp2_sfc_30m','imergtrm_sfc_30m','trmm3b42v7_sfc_3h','tropflux_sfc_d','era5trp_plev_h','era5plp_plev_h','era5mcw_plev_h','era5ewa_plev_h','era5glo_plev_h','era5plp_sfc_h','era5bar_sfc_h','era5mcw_sfc_h','ostial4nrttrp_sfc_d','ostial4reptrp_sfc_d','cmap_sfc_5d']:
@@ -2516,7 +2507,7 @@ class DataConverter(object):
                 self.raw_name='lwr'
             elif self.var_name in ['taux','tauy']:
                 self.raw_name=self.var_name
-        elif self.data_source in ['glorys12v1','glorys12v1eq1','glorys12v1aeq1']:
+        elif self.data_source in ['glorys12v1','glorys12v1eq1']:
             if self.var_name=='swtheta':
                 self.raw_name='thetao'
             elif self.var_name=='swsal':
@@ -2541,7 +2532,6 @@ class DataConverter(object):
             if level_constraint:
                 if self.source in ['erainterim_plev_6h','erainterim_sfc_6h','ncepdoe_plev_d','glorys12v1_zlev_d','glorys12v1eq1_zlev_d']:
                     # time constraint does not work with erainterim, but redundant as file name constrains time
-                    pdb.set_trace()
                     xx=iris.load(self.filein1,constraints=var_constraint & level_constraint,callback=clean_callback)
                 else:
                     xx=iris.load(self.filein1,constraints=var_constraint & level_constraint & time_constraint,callback=clean_callback)
@@ -2577,8 +2567,8 @@ class DataConverter(object):
                 cubec.remove_coord('latitude')
                 cubec.add_dim_coord(latcoord1,1)
         #
-        # Convert time coordinate to standard for ostia and glorys data sets
-        if self.source in ['ostial4nrttrp_sfc_d','ostial4reptrp_sfc_d','glorys12v1_zlev_d','glorys12v1eq1_zlev_d','glorys12v1aeq1_zlev_d']:
+        # Convert time coordinate to standard for ostia and glorys12v1
+        if self.source in ['ostial4nrttrp_sfc_d','ostial4reptrp_sfc_d','glorys12v1_zlev_d','glorys12v1eq1_zlev_d']:
             for cubec in xx:
                 cubec=standardise_time_coord_units(cubec,tunits='days')
         #
@@ -2745,7 +2735,7 @@ class DataConverter(object):
             x5.rename(x1.name())
             x5.var_name=x1.var_name
             self.cube=x5
-        # glorys12v1 and glorys12v1eq1 (but not glorys12v1aeq1) daily data.
+        # glorys daily data.
         # Time stamp is at 12 UTC. Change to 00 UTC by subtracting 0.5 (days).
         if self.source in ['glorys12v1_zlev_d','glorys12v1eq1_zlev_d']:
             change_time_stamp_from_12_to_00(self,verbose=self.verbose)
@@ -4272,7 +4262,6 @@ class SpatialSubset(object):
         else:
             xx1=xx1.extract(band1_constraint)
         ncubes=len(xx1)
-        #pdb.set_trace()
         if ncubes!=1:
             raise UserWarning('Not a single cube. ncubes='+str(ncubes))
         xx1=xx1.concatenate_cube()
@@ -4712,7 +4701,7 @@ class CombineLevels(object):
         self.descriptor=descriptor
         source_info(self)
         if self.subdir=='std':
-            self.file_data=os.path.join(self.basedir,self.source,self.subdir,self.var_name+'_LEVEL'+self.filepre+'_'+self.wildcard+'.nc')
+            self.file_data=os.path.join(self.basedir,self.source,self.subdir,self.var_name+'LEVEL'+self.filepre+'_'+self.wildcard+'.nc')
         elif self.subdir=='processed':
             self.file_data=os.path.join(self.basedir,self.source,self.subdir,self.var_name+'_LEVEL'+self.filepre+'.nc')
         else:
@@ -4781,9 +4770,6 @@ class CombineLevels(object):
             # Dimensions are in order [level,time,latitude,longitude]
             # Reorder to [time,level,latitude,longitude]
             x2.transpose([1,0,2,3])
-        elif (dclen==3 and dcname0=='level' and dcname1=='latitude' and dcname2=='longitude'):
-            # Dimensions are in order [level,latitude,longitude]
-            pass
         else:
             raise ToDoError('Code up for dimension order other than level,time,lat,lon.')
         print('x2 before: {0!s}'.format(x2))
@@ -4791,8 +4777,6 @@ class CombineLevels(object):
         self.data_all=x2
         # Save multi-level data cube
         fileout1=self.file_data.replace('LEVEL','all')
-        if self.subdir=='std':
-            fileout1=fileout1.replace(self.wildcard,str(self.year)+str(self.month).zfill(2))
         print('fileout1: {0!s}'.format(fileout1))
         iris.save(self.data_all,fileout1)
         if self.archive:
@@ -5428,7 +5412,7 @@ class AnnualCycle(object):
             print('npts_missing,npts',npts_missing,npts)
             print('frac_missing,frac_crit',frac_missing,self.frac_crit)
             if (frac_missing>self.frac_crit):
-                if self.source in ['glorys12v1_zlev_d','glorys12v1eq1_zlev_d','glorys12v1eq1erai_zlev_d','glorys12v1aeq1erai_zlev_d']:
+                if self.source in ['glorys12v1_zlev_d','glorys12v1eq1_zlev_d','glorys12v1eq1erai_zlev_d']:
                     print('Letting this go as likely due to land points.')
                 else:
                     raise UserWarning('Warning: Too many missing points. Rethink algorithm.')
@@ -6233,25 +6217,6 @@ class CubeDiagnostics(object):
                 'data_in: {1.data_in!s} \n'+h2b
             print(ss.format(var_name,self))
 
-    def f_read_data_processed(self,var_name,level,tdomainid,source=False,verbose=False):
-        """Lazy read cube(s) of var_name at level from processed subdir with tdomainid.
-
-        Add entry to the dictionary attributes self.filein and
-        self.data_in.
-        """
-        name=var_name2long_name[var_name]
-        self.tdomainid=tdomainid
-        if not source:
-            source=self.source
-        self.filein[var_name+'_'+str(level)]=os.path.join(self.basedir,source,'processed',var_name+'_'+str(level)+self.filepre+'_'+tdomainid+'.nc')
-        self.data_in[var_name+'_'+str(level)]=iris.load(self.filein[var_name+'_'+str(level)],name)
-        if verbose:
-            ss=h2a+'f_read_data \n'+\
-                'var_name: {0!s} \n'+\
-                'filein: {1.filein!s} \n'+\
-                'data_in: {1.data_in!s} \n'+h2b
-            print(ss.format(var_name,self))
-
     def f_read_data_source2(self,var_name,level,verbose=False):
         """Lazy read cube(s) of var_name at level for current time block.
 
@@ -6428,15 +6393,26 @@ class CubeDiagnostics(object):
         if self.archive:
             archive_file(self,fileout)
 
-    def f_sea_water_potential_density(self):
-        """Calculate sea water potential density referenced to 0 dbar.
+    def f_sea_water_potential_density(self,pref=0):
+        """Calculate sea water potential density using Gibbs TEOS-10 routine.
 
         Assumes tsc (conservative temperature) and sa (absolute
         salinity) hav already been loaded, in
         self.data_in['tsc_LEVEL'] and self.data_in['sa_LEVEL'].
 
-        Uses gsw.sigma0(sa,tsc) 
+        Uses gsw.rho_CT(tsc,sa,pref) where pref is reference sea water
+        pressure in dbar.
 
+        Choose <method> to calculate mixed layer depth.
+
+        Method 1 (default).  Assumes do not have explicit values of
+        swp, but tsc and sa are on a grid with a depth axis (in m).
+        Depth in m is sufficiently close to sea water pressure in dbar
+        to use directly, when only considering shallow depths.
+
+        Method 2.  Assumes swp has already been loaded, in
+        self.data_in['swp_LEVEL'], and uses this in the calculation of
+        sea water potential density.
         """
         # Read in tsc,sa for current time block and assign to tsc,sa attributes
         self.time1,self.time2=block_times(self,verbose=self.verbose)
@@ -6447,427 +6423,34 @@ class CubeDiagnostics(object):
         self.sa=x2.concatenate_cube()
         tsc=self.tsc.data
         sa=self.sa.data
-        swpd=gsw.sigma0(sa,tsc)
-        # Create iris cube of swpd
+        # Get sea water pressure
+        #if method==1:
+        #    # Use depth (m) as surrogate for sea water pressure (dbar)
+        #    lev_coord=self.tsc.coord('depth')
+        #    if lev_coord.units!='m':
+        #        raise UserWarning('Depth coordinate must be in m.')
+        #    swp=lev_coord.points
+        #elif method==2:
+        #    # Explicitly read sea water pressure data
+        #    x3=self.data_in['swp_'+str(self.level)].extract(time_constraint)
+        #    self.swp=x3.concatenate_cube()
+        #    if self.swp.units!='dbar':
+        #        raise UserWarning('Sea water pressure must be in dbar.')
+        #    swp=self.swp.data
+        # Calculate seawater potential density
+        swpd=gsw.rho_CT_exact(sa,tsc,pref)
+        # Create iris cube of swp
         var_name='swpd'
         self.swpd=create_cube(conv_float32(swpd),self.tsc,new_var_name=var_name)
         self.swpd.units='kg m-3'
         # Add cell method to describe calculation of sea water potential density
-        cm=iris.coords.CellMethod('point','depth',comments='swpd calculated using gsw.sigma0')
+        cm=iris.coords.CellMethod('point','depth',comments='swpd calculated using gsw.rho_CT_exact in f_sea_water_potential_density: pref='+str(pref))
         self.swpd.add_cell_method(cm)
         # Save cube
         fileout=self.file_data_out.replace('VAR_NAME',var_name)
         fileout=replace_wildcard_with_time(self,fileout)
         print('fileout: {0!s}'.format(fileout))
         iris.save(self.swpd,fileout)
-        if self.archive:
-            archive_file(self,fileout)
-
-    def f_SA_from_SP(self):
-        """Calculate absolute salinity from practical salinity.
-
-        Assumes swsal (practical salinity) has already been loaded, in
-        self.data_in['swsal_LEVEL'].
-
-        Uses gsw.SA_from_SP(SP, p, lon, lat) 
-
-        SP is swsal, practical salinity.
-
-        p is pressure. Calculate this from LEVEL (assumed to be z level) using gsw.p_from_z(lat)
-
-        lon is longitude. Calculated from longitude dimension in swsal input cube.
-        lat is longitude. Calculated from latitude dimension in swsal input cube.
-
-        """
-        # Read in swsal for current time block and assign to swsal attributes
-        self.time1,self.time2=block_times(self,verbose=self.verbose)
-        time_constraint=set_time_constraint(self.time1,self.time2,calendar=self.calendar,verbose=self.verbose)
-        x1=self.data_in['swsal_'+str(self.level)].extract(time_constraint)
-        self.swsal=x1.concatenate_cube()
-        swsal=self.swsal.data
-        # Extract latitudes and longitudes
-        lons=self.swsal.coord('longitude').points
-        lats=self.swsal.coord('latitude').points
-        if self.verbose:
-            lon1=lons[0]
-            lon2=lons[-1]
-            print('lons: {0!s}, {1!s}'.format(lon1,lon2))
-            lat1=lats[0]
-            lat2=lats[-1]
-            print('lats: {0!s}, {1!s}'.format(lat1,lat2))
-        # Calculate pressure from level  and latitude(!)
-        if self.source.split('_')[1]=='zlev':
-            pressure=gsw.p_from_z(-self.level,lats)
-            print('level (m): {0.level!s}'.format(self))
-            print('pressure (dbar): {0!s}'.format(pressure))
-        else:
-            raise UserWarning('Levels need to be z levels.')
-        # Calculate absolute salinity (sa) from practical salinity (swsal)
-        coords=self.swsal.coords()
-        nlon=lons.shape[0]
-        nlat=lats.shape[0]
-        ntime=swsal.shape[0]
-        def broadcast_lat_array(a,nlon,nlat,ntime,verbose=True):
-            """Broadcast input a(nlat,) to shape (ntime,nlat,nlon) """
-            a1=a.reshape((nlat,1))
-            ones=np.ones((1,ntime*nlon))
-            a2=np.dot(a1,ones) # shape (nlat,nlon*ntime)
-            a3=a2.reshape((nlat,ntime,nlon))
-            a4=np.moveaxis(a3,0,1) # switch axes 0 and 1 to get (ntime,nlat,nlon)
-            x1=a4[3,:,7]-a # time index 3 and lon index 7 are just randomly chosen.
-            if verbose:
-                print('# Function broadcast_lat_array.')
-                print('Original a array: {0!s}'.format(a))
-                print('Test x1 should be all zeroes: {0!s}'.format(x1))
-            return a4
-        def broadcast_lon_array(a,nlon,nlat,ntime,verbose=True):
-            """Broadcast input a(nlon,) to shape (ntime,nlat,nlon) """
-            a1=a.reshape((nlon,1))
-            ones=np.ones((1,ntime*nlat))
-            a2=np.dot(a1,ones) # shape (nlon,ntime*nlat)
-            a3=a2.reshape((nlon,ntime,nlat))
-            a4=np.moveaxis(a3,0,2) # switch axes 0 and 1 to get (ntime,nlat,nlon)
-            x1=a4[3,7,:]-a # time index 3 and lat index 7 are just randomly chosen.
-            if verbose:
-                print('# Function broadcast_lon_array.')
-                print('Original a array: {0!s}'.format(a))
-                print('Test x1 should be all zeroes: {0!s}'.format(x1))
-            return a4
-        if coords[0].name()=='time' and coords[1].name()=='latitude' and coords[2].name()=='longitude':
-            pressure_broadcast=broadcast_lat_array(pressure,nlon,nlat,ntime,verbose=self.verbose)
-            lons_broadcast=broadcast_lon_array(lons,nlon,nlat,ntime,verbose=self.verbose)
-            lats_broadcast=broadcast_lat_array(lats,nlon,nlat,ntime,verbose=self.verbose)
-            sa=gsw.SA_from_SP(swsal,pressure_broadcast,lons_broadcast,lats_broadcast)
-            if self.verbose:
-                print('Sample values:')
-                timec=5; latc=7; lonc=9
-                swsalc=swsal[timec,latc,lonc]
-                sac=sa[timec,latc,lonc]
-                print('swsalc: {0!s}'.format(swsalc))
-                print('sac: {0!s}'.format(sac))
-        else:
-            raise UserWarning('Order must be (tine,latitude,longitude)')
-        # Create iris cube of sa
-        var_name='sa'
-        self.sa=create_cube(conv_float32(sa),self.swsal,new_var_name=var_name)
-        self.sa.units='g kg-1'
-        # Add cell method to describe calculation of sea_water_absolute_salinity
-        cm=iris.coords.CellMethod('point','depth',comments='sa calculated using gsw.SA_from_SP in f_SA_from_SP')
-        self.sa.add_cell_method(cm)
-        # Save cube
-        fileout=self.file_data_out.replace('VAR_NAME',var_name)
-        fileout=replace_wildcard_with_time(self,fileout)
-        print('fileout: {0!s}'.format(fileout))
-        iris.save(self.sa,fileout)
-        if self.archive:
-            archive_file(self,fileout)
-
-
-    def f_SA_from_SP_no_time(self):
-            """Calculate absolute salinity from practical salinity.
-
-            Assumes swsal (practical salinity) has already been loaded, in
-            self.data_in['swsal_LEVEL'].
-
-            Uses gsw.SA_from_SP(SP, p, lon, lat) 
-
-            SP is swsal, practical salinity.
-
-            p is pressure. Calculate this from LEVEL (assumed to be z level) using gsw.p_from_z(lat)
-
-            lon is longitude. Calculated from longitude dimension in swsal input cube.
-            lat is longitude. Calculated from latitude dimension in swsal input cube.
-
-            """
-            # Read in swsal
-            self.swsal=self.data_in['swsal_'+str(self.level)].concatenate_cube()
-            swsal=self.swsal.data
-            # Extract latitudes and longitudes
-            lons=self.swsal.coord('longitude').points
-            lats=self.swsal.coord('latitude').points
-            if self.verbose:
-                lon1=lons[0]
-                lon2=lons[-1]
-                print('lons: {0!s}, {1!s}'.format(lon1,lon2))
-                lat1=lats[0]
-                lat2=lats[-1]
-                print('lats: {0!s}, {1!s}'.format(lat1,lat2))
-            # Calculate pressure from level  and latitude(!) pressure has shape (nlat,)
-            if self.source.split('_')[1]=='zlev':
-                pressure=gsw.p_from_z(-self.level,lats)
-                print('level (m): {0.level!s}'.format(self))
-                print('pressure (dbar): {0!s}'.format(pressure))
-            else:
-                raise UserWarning('Levels need to be z levels.')
-            # Calculate absolute salinity (sa) from practical salinity (swsal)
-            coords=self.swsal.coords()
-            nlon=lons.shape[0]
-            nlat=lats.shape[0]
-            #
-            if coords[0].name()=='latitude' and coords[1].name()=='longitude':
-                # Broadcast pressure, lons and lats to same size as swsal (nlat x nlon)
-                # initial shapes: p (nlat,) ; lats (nlat,) ; lons(nlon,)
-                pressure_broadcast=np.repeat(pressure[:,np.newaxis],nlon,1)
-                lons_broadcast=np.repeat(lons[np.newaxis,:],nlat,0)
-                lats_broadcast=np.repeat(lats[:,np.newaxis],nlon,1)
-            else:
-                raise UserWarning('Order must be (latitude,longitude)')
-            #
-            sa=gsw.SA_from_SP(swsal,pressure_broadcast,lons_broadcast,lats_broadcast)
-            if self.verbose:
-                print('Sample values:')
-                latc=7; lonc=9
-                swsalc=swsal[latc,lonc]
-                sac=sa[latc,lonc]
-                print('swsalc: {0!s}'.format(swsalc))
-                print('sac: {0!s}'.format(sac))
-            #
-            # Create iris cube of sa
-            var_name='sa'
-            self.sa=create_cube(conv_float32(sa),self.swsal,new_var_name=var_name)
-            self.sa.units='g kg-1'
-            # Add cell method to describe calculation of sea_water_absolute_salinity
-            cm=iris.coords.CellMethod('point','depth',comments='sa calculated using gsw.SA_from_SP in f_SA_from_SP_no_time')
-            self.sa.add_cell_method(cm)
-            # Save cube
-            fileout=self.file_data_out.replace('VAR_NAME',var_name)
-            fileout=fileout.replace('std','processed')
-            fileout=fileout.replace('??????',self.tdomainid)
-            print('fileout: {0!s}'.format(fileout))
-            iris.save(self.sa,fileout)
-            if self.archive:
-                archive_file(self,fileout)
-
-
-
-
-           
-    def f_CT_from_pt(self):
-        """Calculate conservative temperature from absolute salinity and potential temperature.
-
-        Assumes sa (absolute salinity) and swtheta (potential temperature) have already been loaded, in
-        self.data_in['sa_LEVEL'] and self.data_in['swtheta_LEVEL'].
-
-        Uses gsw.CT_from_pt(SA, pt)    
-
-        SA is absolute salinity.
-
-        pt is potential temperature. 
-
-        """
-        # Read in sa/swtheta for current time block and assign to sa/swtheta attributes
-        self.time1,self.time2=block_times(self,verbose=self.verbose)
-        time_constraint=set_time_constraint(self.time1,self.time2,calendar=self.calendar,verbose=self.verbose)
-        x1=self.data_in['sa_'+str(self.level)].extract(time_constraint)
-        self.sa=x1.concatenate_cube()
-        sa=self.sa.data
-        x1=self.data_in['swtheta_'+str(self.level)].extract(time_constraint)
-        self.swtheta=x1.concatenate_cube()
-        swtheta=self.swtheta.data
-        # Call gsw to calculate the conservative temperature
-        tsc=gsw.CT_from_pt(sa, swtheta)
-        if self.verbose:
-            print('Sample values:')
-            timec=5; latc=7; lonc=9
-            swthetac=swtheta[timec,latc,lonc]
-            tscc=tsc[timec,latc,lonc]
-            print('swthetac: {0!s}'.format(swthetac))
-            print('tsc: {0!s}'.format(tscc))
-        # Create iris cube of tsc
-        var_name='tsc'
-        self.tsc=create_cube(conv_float32(tsc),self.swtheta,new_var_name=var_name)
-        self.tsc.units='degC'
-        # Add cell method to describe calculation of sea_water_conservative_temperature
-        cm=iris.coords.CellMethod('point','depth',comments='tsc calculated using gsw.CT_from_pt in f_CT_from_pt')
-        self.tsc.add_cell_method(cm)
-        # Save cube
-        fileout=self.file_data_out.replace('VAR_NAME',var_name)
-        fileout=replace_wildcard_with_time(self,fileout)
-        print('fileout: {0!s}'.format(fileout))
-        iris.save(self.tsc,fileout)
-        if self.archive:
-            archive_file(self,fileout)
-
-    def f_CT_from_pt_no_time(self):
-        """Calculate conservative temperature from absolute salinity and potential temperature.
-
-        Assumes sa (absolute salinity) and swtheta (potential temperature) have already been loaded, in
-        self.data_in['sa_LEVEL'] and self.data_in['swtheta_LEVEL'].
-
-        Uses gsw.CT_from_pt(SA, pt)    
-
-        SA is absolute salinity.
-
-        pt is potential temperature. 
-
-        """
-        # Read in sa/swtheta for current time block and assign to sa/swtheta attributes
-        self.sa=self.data_in['sa_'+str(self.level)].concatenate_cube()
-        sa=self.sa.data
-        self.swtheta=self.data_in['swtheta_'+str(self.level)].concatenate_cube()
-        swtheta=self.swtheta.data
-        # Call gsw to calculate the conservative temperature
-        tsc=gsw.CT_from_pt(sa, swtheta)
-        if self.verbose:
-            print('Sample values:')
-            latc=7; lonc=9
-            swthetac=swtheta[latc,lonc]
-            tscc=tsc[latc,lonc]
-            print('swthetac: {0!s}'.format(swthetac))
-            print('tsc: {0!s}'.format(tscc))
-        # Create iris cube of tsc
-        var_name='tsc'
-        self.tsc=create_cube(conv_float32(tsc),self.swtheta,new_var_name=var_name)
-        self.tsc.units='degC'
-        # Add cell method to describe calculation of sea_water_conservative_temperature
-        cm=iris.coords.CellMethod('point','depth',comments='tsc calculated using gsw.CT_from_pt in f_CT_from_pt')
-        self.tsc.add_cell_method(cm)
-        # Save cube
-        fileout=self.file_data_out.replace('VAR_NAME',var_name)
-        fileout=fileout.replace('std','processed')
-        fileout=fileout.replace('??????',self.tdomainid)
-        print('fileout: {0!s}'.format(fileout))
-        iris.save(self.tsc,fileout)
-        if self.archive:
-            archive_file(self,fileout)
-
-
-
-
-
-
-            
-    def f_gsw_nsquared_no_time(self):
-        """Calculate nsquared from the absolute salinity, conservative temperature, pressure and latitude.
-
-        Assumes sa (absolute salinity) and tsc (conservative temperature) have already been loaded, in
-        self.data_in['sa_LEVEL'] and self.data_in['tsc_LEVEL'].
-
-        Uses gsw.Nsquared(SA, CT, p, lat)
-
-        SA is absolute salinity.
-        
-        CT is conservative temperature.
-
-        p is pressure. Calculate this from LEVEL (assumed to be z level) using gsw.p_from_z(lat)
-
-        lat is latitude. Calculated from latitude dimension in sa input cube.
-
-        """
-        # Read in sa/tsc for current time block and assign to sa/tsc attributes
-
-        self.sa=self.data_in['sa_'+str(self.level)].concatenate_cube()
-        sa=self.sa.data
-        self.tsc=self.data_in['tsc_'+str(self.level)].concatenate_cube()
-        tsc=self.tsc.data
-        # Extract latitudes, longitudes and levels
-        lons=self.sa.coord('longitude').points
-        lats=self.sa.coord('latitude').points
-        levels=self.sa.coord('level').points
-        if self.verbose:
-            lon1=lons[0]
-            lon2=lons[-1]
-            print('lons: {0!s}, {1!s}'.format(lon1,lon2))
-            lat1=lats[0]
-            lat2=lats[-1]
-            print('lats: {0!s}, {1!s}'.format(lat1,lat2))
-            lev1=levels[0]
-            lev2=levels[-1]
-            print('levels: {0!s}, {1!s}'.format(lev1,lev2))
-        # Calculate pressure from level  and latitude(!)
-        if self.source.split('_')[1]=='zlev':
-            nlevel=len(levels)
-            nlat=len(lats)
-            # Broadcast levels and lats to be same size (nlevels x nlats) for calculating pressures 
-            levels_broad=np.repeat(levels[:,np.newaxis],nlat,1)
-            lats_broad=np.repeat(lats[np.newaxis,:],nlevel,0)
-            pressure=gsw.p_from_z(-levels_broad,lats_broad)
-            #print('level (m): {0.level!s}'.format(self))
-            #print('pressure (dbar): {0!s}'.format(pressure))
-        else:
-            raise UserWarning('Levels need to be z levels.')
-        #
-        #
-        #
-        # Calculate Nsquared from absolute salinity (sa) from conservative temperature (tsc)
-        coords=self.sa.coords()
-        nlon=lons.shape[0]
-        nlat=lats.shape[0]
-        nlev=levels.shape[0]
-        if coords[0].name()=='level' and coords[1].name()=='latitude' and coords[2].name()=='longitude':
-            # We have pressure shape as (nlev, nlat) 
-            # Broadcast pressure to longitude axis, to give shape (nlev, nlat, nlon)
-            pressure_broadcast=np.repeat(pressure[:,:,np.newaxis],nlon,2)
-            # We have lats shape as (nlat,) 
-            # Broadcast lats first to level axis, to give shape (nlev, nlat)
-            lats_broadcast=np.repeat(lats[np.newaxis,:],nlev,0)
-            # Then broadcast lats to lons axis, to give shape (nlev, nlat, nlon)
-            lats_broadcast=np.repeat(lats_broadcast[:,:,np.newaxis],nlon,2)
-            if self.verbose:
-                print('sa shape: ',np.shape(sa))
-                print('tsc shape: ',np.shape(tsc))
-                print('pressure_broadcast shape: ',np.shape(pressure_broadcast))
-            #Nsquared, p_mid=gsw.Nsquared(sa, tsc, pressure_broadcast, axis=0)
-            Nsquared, p_mid=gsw.Nsquared(sa, tsc, pressure_broadcast, lats_broadcast,axis=0)
-            if self.verbose:
-                print('Sample values:')
-                print(type(Nsquared))
-                levelc=2; latc=7; lonc=360
-                Nsquaredc=Nsquared[levelc, latc,lonc]
-                print('Nsquaredc: {0!s}'.format(Nsquaredc))
-        else:
-            raise UserWarning('Order must be (level,latitude,longitude)')
-        ## First use the pressure to create a new DimCoord with values given by the average of p_mid at each (mid-)level [could have used depth instead, this axis is only for keeping track]
-        #mean_p_axis=np.mean(p_mid,(1,2))
-        #mean_p_DimCoord=iris.coords.DimCoord(mean_p_axis,var_name='level',units='dbar',attributes={'notes' : 'Mean pressure midpoint values between levels, complete midpoint pressures returned alongside nsquared in gsw.Nsquared and stored in associated p_mid cube'})
-        #
-        ## Use depth as DimCoord instead, first need to calculate mid-point depths from pressures
-        # We have lats shape as (nlat,) 
-        # Broadcast lats first to mid-level axis, to give shape (nlev-1, nlat)
-        lats_broadcast=np.repeat(lats[np.newaxis,:],nlev-1,0)
-        # Then broadcast lats to lons axis, to give shape (nlev-1, nlat, nlon)
-        lats_broadcast=np.repeat(lats_broadcast[:,:,np.newaxis],nlon,2)
-        z_mid=gsw.z_from_p(p_mid,lats_broadcast)
-        temp_z=iris.cube.Cube(-z_mid) # gsw gives depth as negative so *-1
-        temp_z.add_dim_coord(self.sa.coord('longitude'),2)
-        temp_z.add_dim_coord(self.sa.coord('latitude'),1)
-        grid_area=iris.analysis.cartography.area_weights(temp_z)
-        temp_z=temp_z.collapsed(['longitude','latitude'],iris.analysis.MEAN,weights=grid_area).data.data
-        mean_z_DimCoord=iris.coords.DimCoord(temp_z,var_name='level')
-        # Create iris cubes of Nsquared and corresponding p_mid
-        var_name='nsquared'
-        long_name=var_name2long_name[var_name]
-        self.Nsquared=iris.cube.Cube(Nsquared,units='s-2')
-        self.Nsquared.rename(long_name)
-        self.Nsquared.var_name=var_name
-        self.Nsquared.add_dim_coord(self.sa.coord('longitude'),2)
-        self.Nsquared.add_dim_coord(self.sa.coord('latitude'),1)
-        #self.Nsquared.add_dim_coord(mean_p_DimCoord,0)
-        self.Nsquared.add_dim_coord(mean_z_DimCoord,0)
-        #print(self.Nsquared)
-        self.p_mid=iris.cube.Cube(p_mid,long_name='p_mid calculated alongside nsquared from gsw',units='dbar')
-        self.p_mid.add_dim_coord(self.sa.coord('longitude'),2)
-        self.p_mid.add_dim_coord(self.sa.coord('latitude'),1)
-        #self.p_mid.add_dim_coord(mean_p_DimCoord,0)
-        self.p_mid.add_dim_coord(mean_z_DimCoord,0)
-        #print(self.p_mid)
-        ## Save cubes
-        # Cube diagnostics was written for data in 'std', we want this to be 'processed' instead as no time axis, also add tdomainid back into name
-        self.file_data_out=self.file_data_out.replace('std','processed') 
-        self.file_data_out=self.file_data_out.replace('??????',self.tdomainid)
-        ## Nsqaured
-        fileout=self.file_data_out.replace('VAR_NAME',self.Nsquared.var_name)
-        #fileout=fileout.replace('_??????','')
-        print('fileout: {0!s}'.format(fileout))
-        iris.save(self.Nsquared,fileout)
-        if self.archive:
-            archive_file(self,fileout)
-        ## p_mid
-        var_name='p_mid'
-        fileout=self.file_data_out.replace('VAR_NAME',var_name)
-        #fileout=fileout.replace('_??????','')
-        print('fileout: {0!s}'.format(fileout))
-        iris.save(self.p_mid,fileout)
         if self.archive:
             archive_file(self,fileout)
 
@@ -6987,111 +6570,6 @@ class CubeDiagnostics(object):
         iris.save(self.theta,fileout)
         if self.archive:
             archive_file(self,fileout)
-
-    def f_tau_from_wind(self,method,rho_air=1.17,cd=1.45e-3):
-        """Calculate surface wind stress from surface wind.
-
-        If METHOD is 'uwnd', assumes surface uwnd has already been
-        loaded, in self.data_in['uwnd_1']. Calculates eastward
-        component of surface wind stress taux.
-
-        If METHOD is 'vwnd', assumes surface vwnd has already been
-        loaded, in self.data_in['vwnd_1']. Calculates northward
-        component of surface wind stress tauy.
-
-        If METHOD is 'both', assumes surface uwnd and vwnd have
-        already been loaded. Calculates taux and tauy
-
-        taux = rho_a C_D uwnd |uwnd|
-        tauy = rho_a C_D vwnd |vwnd|
-
-        Default value of rho_air is 1.17 kg m-3 from ideal gas law 
-        p=rho_air R T with
-        p=1e5 Pa, R=287 J kg-1 K-1, T=298 K
-
-        Default value of drag coefficient is cd = 1.45e-3
-
-        """
-        self.method=method
-        self.rho_air=rho_air
-        self.cd=cd
-        # Check surface level is selected
-        if self.level!=1:
-            raise UserWarning('Surface level data needed.')
-        # Check method is valid
-        if self.method not in ['uwnd','vwnd','both']:
-            raise UserWarning('Invalid method.')
-        # Read in uwnd,vwnd as needed for current time block and assign 
-        #  to uwnd,vwnd attributes
-        self.time1,self.time2=block_times(self,verbose=self.verbose)
-        time_constraint=set_time_constraint(self.time1,self.time2,calendar=self.calendar,verbose=self.verbose)
-        if self.method in ['uwnd','both']:
-            x1=self.data_in['uwnd_'+str(self.level)].extract(time_constraint)
-            self.uwnd=x1.concatenate_cube()
-        if self.method in ['vwnd','both']:
-            x2=self.data_in['vwnd_'+str(self.level)].extract(time_constraint)
-            self.vwnd=x2.concatenate_cube()
-        # Calculate wind stress
-        if self.method in ['uwnd','both']:
-            uwnd=self.uwnd.data
-            taux=self.rho_air*self.cd*uwnd*np.abs(uwnd)
-        if self.method in ['vwnd','both']:
-            vwnd=self.vwnd.data
-            tauy=self.rho_air*self.cd*vwnd*np.abs(vwnd)
-        # Create iris cube of wind stress
-        if self.method in ['uwnd','both']:
-            var_name='taux'
-            self.taux=create_cube(conv_float32(taux),self.uwnd,new_var_name=var_name)
-            self.taux.units='N m-2'
-        if self.method in ['vwnd','both']:
-            var_name='tauy'
-            self.tauy=create_cube(conv_float32(tauy),self.vwnd,new_var_name=var_name)
-            self.tauy.units='N m-2'
-        # Add cell method to describe calculation of surface wind stress
-        if self.method in ['uwnd','both']:
-            cm=iris.coords.CellMethod('point','level',comments='eastward surface wind stress calculated from eastward surface wind with air density '+str(self.rho_air)+', drag coefficient '+str(self.cd))
-            self.taux.add_cell_method(cm)
-        if self.method in ['vwnd','both']:
-            cm=iris.coords.CellMethod('point','level',comments='northward surface wind stress calculated from northward surface wind with air density '+str(self.rho_air)+', drag coefficient '+str(self.cd))
-            self.tauy.add_cell_method(cm)
-        # Save cube
-        if self.method in ['uwnd','both']:
-            var_name='taux'
-            fileout=self.file_data_out.replace('VAR_NAME',var_name)
-            fileout=replace_wildcard_with_time(self,fileout)
-            print('fileout: {0!s}'.format(fileout))
-            iris.save(self.taux,fileout)
-            if self.archive:
-                archive_file(self,fileout)
-        if self.method in ['vwnd','both']:
-            var_name='tauy'
-            fileout=self.file_data_out.replace('VAR_NAME',var_name)
-            fileout=replace_wildcard_with_time(self,fileout)
-            print('fileout: {0!s}'.format(fileout))
-            iris.save(self.tauy,fileout)
-            if self.archive:
-                archive_file(self,fileout)
-        # Print
-        if self.verbose:
-            ss=h1a+'f_tau_from_wind\n'+\
-                'level: {0.level!s}\n'+\
-                'method: {0.method!s}\n'+\
-                'rho_air: {0.rho_air!s}\n'+\
-                'cd: {0.cd!s}\n'
-            print(ss.format(self))
-            if self.method in ['uwnd','both']:
-                taux_min=self.taux.data.min()
-                taux_max=self.taux.data.max()
-                print('taux min: {0!s}'.format(taux_min))
-                print('taux max: {0!s}'.format(taux_max))
-            if self.method in ['vwnd','both']:
-                tauy_min=self.tauy.data.min()
-                tauy_max=self.tauy.data.max()
-                print('tauy min: {0!s}'.format(tauy_min))
-                print('tauy max: {0!s}'.format(tauy_max))
-            print(h1b)
-
-
 
     def f_vwndptap(self):
         """Calculate v'T' from anomalous vwnd and ta.
@@ -10503,7 +9981,7 @@ class CCEWLagrangian(object):
             between at least 80 and 100 degrees east. Set to False to
             disable.
 
-            'round_to_nearest_time' : string or False. If False, pass
+            'round_to_nearest_time' : string of False. If False, pass
             datetime of crossing lonc to time domain at full
             resolution, e.g., 3 hour resolution. If 'd', then round
             datetime to nearest day at 00 UTC. If '6h', then round
